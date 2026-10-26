@@ -1,9 +1,9 @@
-const { requestLogger, errorLogger } = require("../utils/logger");
+const { requestLogger, errorLogger } = require('../utils/logger');
 
 function logRequests(req, res, next) {
   const startTime = Date.now();
 
-  res.on("finish", () => {
+  res.on('finish', () => {
     const logEntry = {
       method: req.method,
       url: req.originalUrl,

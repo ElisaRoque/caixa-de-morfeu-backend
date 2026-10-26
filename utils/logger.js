@@ -1,33 +1,33 @@
-const winston = require("winston");
-const path = require("path");
-const fs = require("fs");
+const winston = require('winston');
+const path = require('path');
+const fs = require('fs');
 
-const logDirectory = path.join(__dirname, "..", "logs");
+const logDirectory = path.join(__dirname, '..', 'logs');
 
 fs.mkdirSync(logDirectory, { recursive: true });
 
 const requestLogger = winston.createLogger({
-  level: "info",
+  level: 'info',
   format: winston.format.combine(
     winston.format.timestamp(),
     winston.format.json(),
   ),
   transports: [
     new winston.transports.File({
-      filename: path.join(logDirectory, "request.log"),
+      filename: path.join(logDirectory, 'request.log'),
     }),
   ],
 });
 
 const errorLogger = winston.createLogger({
-  level: "error",
+  level: 'error',
   format: winston.format.combine(
     winston.format.timestamp(),
     winston.format.json(),
   ),
   transports: [
     new winston.transports.File({
-      filename: path.join(logDirectory, "error.log"),
+      filename: path.join(logDirectory, 'error.log'),
     }),
   ],
 });

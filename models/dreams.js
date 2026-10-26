@@ -1,10 +1,10 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
 const dreamSchema = new mongoose.Schema(
   {
     owner: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "User",
+      ref: 'User',
       required: true,
     },
 
@@ -44,4 +44,4 @@ const dreamSchema = new mongoose.Schema(
   },
 );
 
-module.exports = mongoose.model("Dream", dreamSchema);
+module.exports = mongoose.model('Dream', dreamSchema);

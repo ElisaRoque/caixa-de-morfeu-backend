@@ -1,7 +1,9 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
 const connectDB = () => {
-  return mongoose.connect("mongodb://localhost:27017/caixa-de-morfeu");
+  const mongoUri = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/caixa-de-morfeu';
+
+  return mongoose.connect(mongoUri);
 };
 
 module.exports = connectDB;
